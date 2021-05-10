@@ -75,7 +75,11 @@ export default makeStyles((theme) => ({
     display: 'flex',
     alignItems: 'center',
     fontSize: '15px',
-    marginLeft: '-30%',
+    // marginLeft: '-30%',
+    marginLeft: '-7%',
+    width: '100%',
+    minWidth: '110px',
+    maxWidth: '156px',
   },
   brandContainer: {
     display: 'flex',
@@ -103,19 +107,19 @@ export default makeStyles((theme) => ({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor:'black',
+    backgroundColor: 'black',
     color: 'white',
     width: '70%',
     marginLeft: 'auto',
-    marginRight:'auto',
+    marginRight: 'auto',
   },
   heading: {
     color: 'salmon',
-    textDecoration:'None',
+    textDecoration: 'None',
   },
   image: {
     marginLeft: '15px',
     marginRight: '15px',
   },
-  
+
 }));
