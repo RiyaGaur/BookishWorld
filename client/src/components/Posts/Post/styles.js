@@ -94,7 +94,7 @@ export default makeStyles({
     justifyContent: 'space-between',
     margin: '20px',
   },
-  creator: {
+  writer: {
     padding: '0 16px',
   },
   message: {

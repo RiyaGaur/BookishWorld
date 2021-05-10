@@ -7,7 +7,7 @@ import { createPost, updatePost } from '../../actions/posts';
 import useStyles from './styles';
 
 const Form = ({ currentId, setCurrentId }) => {
-  const [postData, setPostData] = useState({ title: '',creator: '' , message: '', tags: '', selectedFile: '' });
+  const [postData, setPostData] = useState({ title: '',writer: '' , message: '', tags: '', selectedFile: '' });
   const post = useSelector((state) => (currentId ? state.posts.find((message) => message._id === currentId) : null));
   const dispatch = useDispatch();
   const classes = useStyles();
@@ -19,7 +19,7 @@ const Form = ({ currentId, setCurrentId }) => {
 
   const clear = () => {
     setCurrentId(0);
-    setPostData({ title: '', creator: '' ,message: '', tags: '', selectedFile: '' });
+    setPostData({ title: '', writer: '' ,message: '', tags: '', selectedFile: '' });
   };
 
   const handleSubmit = async (e) => {
@@ -37,7 +37,7 @@ const Form = ({ currentId, setCurrentId }) => {
   if (!user?.result?.name) {
     return (
       <Paper className={classes.paper}>
-        <Typography variant="h6" align="center">
+        <Typography variant="h6" align="center" style={{fontSize:"20px"}}>
           Please Sign In to add your own favourite Book and like other's favourite book.
         </Typography>
       </Paper>
@@ -61,7 +61,7 @@ const Form = ({ currentId, setCurrentId }) => {
          <Typography variant="h5">{currentId ? `Editing ${postData.title}` : 'Adding Book'}</Typography>
          {/* <TextField style={{backgroundColor: "black"}} InputProps={{style: {color: "white"}, classes: {notchedOutline: classes.notchedOutline}}} InputLabelProps={{style:{color: "white"}}} name="title" variant="outlined" label="Title" fullWidth value={postData.title} onChange={(e) => setPostData({ ...postData, title: e.target.value })} /> */}
          <TextField name="title" variant="outlined" label="Title" fullWidth value={postData.title} onChange={(e) => setPostData({ ...postData, title: e.target.value })} />
-         <TextField name="creator" variant="outlined" label="Creator" fullWidth value={postData.creator} onChange={(e) => setPostData({ ...postData, creator: e.target.value })} />
+         <TextField name="writer" variant="outlined" label="Creator" fullWidth value={postData.writer} onChange={(e) => setPostData({ ...postData, writer: e.target.value })} />
          <TextField name="message" variant="outlined" label="Description" fullWidth multiline rows={3} value={postData.message} onChange={(e) => setPostData({ ...postData, message: e.target.value })} />
          <TextField name="tags" variant="outlined" label="Tags (coma separated)" fullWidth value={postData.tags} onChange={(e) => setPostData({ ...postData, tags: e.target.value.split(',') })} />
          {/* <div style={{color: "white"}} className={classes.fileInput}><FileBase type="file" multiple={false} onDone={({ base64 }) => setPostData({ ...postData, selectedFile: base64 })} /></div> */}

@@ -34,7 +34,7 @@ const Post = ({ post, setCurrentId }) => {
       <div className={classes.overlay}>
         <Typography className={classes.title} gutterBottom variant="h5" component="h2">{post.title}</Typography>
       </div>
-      {(user?.result?.googleId === post?.creator || user?.result?._id === post?.creator) && (
+      {(user?.result?.googleId === post?.name || user?.result?._id === post?.name) && (
       <div className={classes.overlay2}>
         <Button onClick={() => setCurrentId(post._id)} style={{ color: 'white' }} size="small">
           <MoreHorizIcon fontSize="default" />
@@ -44,7 +44,7 @@ const Post = ({ post, setCurrentId }) => {
       <div className={classes.details}>
         <Typography variant="body2" color="textSecondary" component="h2">{post.tags.map((tag) => `#${tag} `)}</Typography>
       </div>
-      <Typography variant="h6" className={classes.creator}>By {post.name}</Typography>
+      <Typography variant="h6" className={classes.writer}>By {post.writer}</Typography>
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">{post.message}</Typography>
       </CardContent>
@@ -52,7 +52,7 @@ const Post = ({ post, setCurrentId }) => {
         <Button size="small" color="primary" disabled={!user?.result} onClick={() => dispatch(likePost(post._id))}>
           <Likes />
         </Button>
-        {(user?.result?.googleId === post?.creator || user?.result?._id === post?.creator) && (
+        {(user?.result?.googleId === post?.name || user?.result?._id === post?.name) && (
         <Button size="small" color="secondary" onClick={() => dispatch(deletePost(post._id))}>
           <DeleteIcon fontSize="small" /> Delete
         </Button>
